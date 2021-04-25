@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.pojo">
+    <insert id="addHero" parameterType="Hero">
+        insert into hero (name,hp,damage) values (#{name}, #{hp}, #{damage})
+    </insert>
+
+    <delete id="deleteHero" parameterType="Hero">
+        delete from hero where id= #{id}
+    </delete>
+
+    <select id="getHero" parameterType="int" resultType="Hero">
+        select * from hero where id= #{id}
+    </select>
+
+    <update id="updateHero" parameterType="Hero" >
+        update hero set name=#{name} where id=#{id}
+    </update>
+
+    <select id="listHero" resultType="Hero">
+        select * from  hero
+    </select>
+
+
+</mapper>
